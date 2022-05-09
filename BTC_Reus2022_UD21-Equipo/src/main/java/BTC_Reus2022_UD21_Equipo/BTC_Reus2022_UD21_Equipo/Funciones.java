@@ -22,14 +22,44 @@ public class Funciones {
 	public double resetValue() {
 		return 0;
 	}
-	public double euroRubla(double inputValue) {
-		double retorno=0.0;
-		retorno = inputValue*70.95;
-		return retorno;
+	
+	
+	public void getTypeConversion(String valorJComboBox1, String valorJComboBox2, double inputValue) {
+		String sumaStrings=valorJComboBox1+valorJComboBox2;
+		sumaStrings = sumaStrings.toLowerCase();
+		
+		switch(sumaStrings) {
+		
+		case "eurodolar":
+			euroDollar(inputValue);
+			break;
+		case "eurorubla":
+			
+			break;
+		case "dolareuro":
+			
+			break;
+		case "dolarrubla":
+			
+			break;
+		case "rublaeuro":
+			
+			break;
+		case "rubladolar":
+			
+			break;
+		}
+		
 	}
+	
 	public double euroDollar(double inputValue) {
 		double retorno=0.0;
 		retorno = inputValue*1.05;
+		return retorno;
+	}
+	public double euroRubla(double inputValue) {
+		double retorno=0.0;
+		retorno = inputValue*70.95;
 		return retorno;
 	}
 	public double DollarEuro(double inputValue) {
