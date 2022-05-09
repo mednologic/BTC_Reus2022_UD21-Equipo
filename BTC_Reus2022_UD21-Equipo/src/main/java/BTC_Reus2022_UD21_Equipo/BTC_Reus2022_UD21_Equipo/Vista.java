@@ -21,12 +21,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
 
 /**
  * Este programa realizará las diferentes conversiones de divisas, mediante dos
  * comboBox se eligirá el tipo de moneda a convertir.
  */
 public class Vista implements ActionListener{
+	
+	public Funciones func;
 
 	// Atributos de clase.
 	private JFrame frmConversorDeDivisas;
@@ -49,6 +52,7 @@ public class Vista implements ActionListener{
 	private JComboBox comboBox_superior;
 	private JComboBox comboBox_inferior;
 	private String valorNumero ="";
+	public JLabel lblResult;
 	
 	
 
@@ -77,6 +81,7 @@ public class Vista implements ActionListener{
 	 */
 	private void initialize() {
 		//Creacion de objetos
+		//func = new Funciones();
 		frmConversorDeDivisas = new JFrame();
 		btn_num9 			= new JButton("9");
 		btn_num8 			= new JButton("8");
@@ -91,8 +96,10 @@ public class Vista implements ActionListener{
 		btn_ce 				= new JButton("CE");
 		btn_borrarNumero 	= new JButton("del");
 		btn_coma 			= new JButton(",");
-		comboBox_superior = new JComboBox();
-		comboBox_inferior = new JComboBox();
+		comboBox_superior 	= new JComboBox();
+		comboBox_inferior 	= new JComboBox();
+		lblResult 			= new JLabel("New label");
+	
 		
 		// Se crea una instancia de la clase JFrame y se definen sus atributos.
 		frmConversorDeDivisas.setTitle("Conversor de divisas");
@@ -255,6 +262,8 @@ public class Vista implements ActionListener{
 		
 		comboBox_superior.setBorder(null);
 		comboBox_superior.setModel(new DefaultComboBoxModel(new String[] { "Dolar", "Euro", "Rubla" }));
+		comboBox_superior.setSelectedIndex(0);
+		
 		comboBox_superior.setBackground(Color.DARK_GRAY);
 		comboBox_superior.setForeground(Color.WHITE);
 		comboBox_superior.setBounds(20, 257, 226, 22);
@@ -263,11 +272,17 @@ public class Vista implements ActionListener{
 		// Se crea el comboBox, se definen sus atributos y valores.
 		
 		comboBox_inferior.setModel(new DefaultComboBoxModel(new String[] { "Dolar", "Euro", "Rubla" }));
+		comboBox_inferior.setSelectedIndex(1);
 		comboBox_inferior.setForeground(Color.WHITE);
 		comboBox_inferior.setBorder(null);
 		comboBox_inferior.setBackground(Color.DARK_GRAY);
 		comboBox_inferior.setBounds(20, 430, 226, 22);
 		frmConversorDeDivisas.getContentPane().add(comboBox_inferior);
+		
+		
+		lblResult.setForeground(Color.WHITE);
+		lblResult.setBounds(38, 108, 61, 16);
+		frmConversorDeDivisas.getContentPane().add(lblResult);
 		
 //Action Listeners
 		btn_num9.addActionListener(this);
@@ -296,41 +311,39 @@ public class Vista implements ActionListener{
 				JButton btnPress = (JButton)e.getSource();
 				//Getting the text of the widget
 				String name = btnPress.getText();
+				String combo1 = comboBox_superior.getSelectedItem().toString();
+				String combo2 = comboBox_inferior.getSelectedItem().toString();
 				
 				switch(name) {
 					case "1":
 						valorNumero = valorNumero+"1"; 
-						
 						break;
 					case "2":
 						valorNumero = valorNumero+"2"; 
-						
 						break;
 					case "3":
 						valorNumero = valorNumero+"3"; 
-						
 						break;
 					case "4":
 						valorNumero = valorNumero+"4"; 	
-						
 						break;
 					case "5":
-						
+						valorNumero = valorNumero+"5";
 						break;
 					case "6":
-						
+						valorNumero = valorNumero+"6";
 						break;
 					case "7":
-						
+						valorNumero = valorNumero+"7";
 						break;
 					case "8":
-						
+						valorNumero = valorNumero+"8";
 						break;
 					case "9":
-						
+						valorNumero = valorNumero+"9";
 						break;
 					case "0":
-						
+						valorNumero = valorNumero+"0";
 						break;
 					case "CE":
 						
@@ -341,6 +354,10 @@ public class Vista implements ActionListener{
 					case ",":
 						
 						break;
+			}
+			
+			if(!valorNumero.equals("")) {
+				//func.getTypeConversion(combo1,combo2, valorNumero);
 			}
 		
 	}

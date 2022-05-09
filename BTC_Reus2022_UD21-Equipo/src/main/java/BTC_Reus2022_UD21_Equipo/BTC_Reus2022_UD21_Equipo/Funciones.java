@@ -2,6 +2,43 @@ package BTC_Reus2022_UD21_Equipo.BTC_Reus2022_UD21_Equipo;
 
 public class Funciones {
 	
+	public Vista vista;
+	//Constructor vacio
+
+	public void getTypeConversion(String valorJComboBox1, String valorJComboBox2, String inputValue) {
+		
+		String sumaStrings=valorJComboBox1+valorJComboBox2;
+		Double valorOperar = Double.parseDouble(inputValue);
+		String retorno="";
+		
+		//Sumamos los strings recibidos para que el sitch los reciva
+		sumaStrings = sumaStrings.toLowerCase();
+		
+		switch(sumaStrings) {
+		
+			case "eurodolar":
+				retorno =Double.toString(euroDollar(valorOperar));
+				break;
+			case "eurorubla":
+				retorno =Double.toString(euroRubla(valorOperar));
+				break;
+			case "dolareuro":
+				dollarEuro(valorOperar);
+				break;
+			case "dolarrubla":
+				dollarRuble(valorOperar);
+				break;
+			case "rublaeuro":
+				rubleEuro(valorOperar);
+				break;
+			case "rubladolar":
+				rubleDollar(valorOperar);
+				break;	
+		}
+		//Seteamos en vista el resultado
+		vista.lblResult.setText(retorno);
+	}
+	
 	public String tipoMoneda(int opcion) {
 		String tipoMoneda="";
 		switch(opcion) {
@@ -20,7 +57,7 @@ public class Funciones {
 	}
 	//Resetea los numeros introducidos "boton borrar"
 	public String resetValue() {
-		String retorno="";
+		String retorno="0";
 		return retorno;
 	}
 
@@ -35,33 +72,7 @@ public class Funciones {
 			return retorno;
 		}
 	
-	public void getTypeConversion(String valorJComboBox1, String valorJComboBox2, double inputValue) {
-		String sumaStrings=valorJComboBox1+valorJComboBox2;
-		sumaStrings = sumaStrings.toLowerCase();
-		
-		switch(sumaStrings) {
-		
-		case "eurodolar":
-			euroDollar(inputValue);
-			break;
-		case "eurorubla":
-			
-			break;
-		case "dolareuro":
-			
-			break;
-		case "dolarrubla":
-			
-			break;
-		case "rublaeuro":
-			
-			break;
-		case "rubladolar":
-			
-			break;
-		}
-		
-	}
+
 	
 	public double euroDollar(double inputValue) {
 		double retorno=0.0;
@@ -73,22 +84,22 @@ public class Funciones {
 		retorno = inputValue*70.95;
 		return retorno;
 	}
-	public double DollarEuro(double inputValue) {
+	public double dollarEuro(double inputValue) {
 		double retorno=0.0;
 		retorno = inputValue/1.05;
 		return retorno;
 	}
-	public double DollarRuble(double inputValue) {
+	public double dollarRuble(double inputValue) {
 		double retorno=0.0;
 		retorno = inputValue*69.35;
 		return retorno;
 	}
-	public double RubleEuro(double inputValue) {
+	public double rubleEuro(double inputValue) {
 		double retorno=0.0;
 		retorno = inputValue/0.014;
 		return retorno;
 	}
-	public double RubleDollar(double inputValue) {
+	public double rubleDollar(double inputValue) {
 		double retorno=0.0;
 		retorno = inputValue/0.013;
 		return retorno;
