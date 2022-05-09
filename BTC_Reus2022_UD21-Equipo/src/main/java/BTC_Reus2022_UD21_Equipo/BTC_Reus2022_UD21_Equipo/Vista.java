@@ -15,6 +15,9 @@ import javax.swing.UIManager;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -23,13 +26,31 @@ import javax.swing.DefaultComboBoxModel;
  * Este programa realizará las diferentes conversiones de divisas, mediante dos
  * comboBox se eligirá el tipo de moneda a convertir.
  */
-public class Vista {
+public class Vista implements ActionListener{
 
 	// Atributos de clase.
 	private JFrame frmConversorDeDivisas;
 	private JTextField moneda_arriba;
 	private JTextField moneda_abajo;
 	private JTextField txtMoneda;
+	private JButton btn_num9;
+	private JButton btn_num8;
+	private JButton btn_num7;
+	private JButton btn_num6;
+	private JButton btn_num5;
+	private JButton btn_num4;
+	private JButton btn_num3;
+	private	JButton btn_num2;
+	private JButton btn_num1;
+	private JButton btn_num0;
+	private JButton btn_ce;
+	private JButton btn_borrarNumero;
+	private JButton btn_coma;
+	private JComboBox comboBox_superior;
+	private JComboBox comboBox_inferior;
+	private String valorNumero ="";
+	
+	
 
 	// Se crea una instancia de la vista y se otorga visibilidad en el JFrame.
 	public static void main(String[] args) {
@@ -55,8 +76,25 @@ public class Vista {
 	 * define su posición en el JFrame.
 	 */
 	private void initialize() {
-		// Se crea una instancia de la clase JFrame y se definen sus atributos.
+		//Creacion de objetos
 		frmConversorDeDivisas = new JFrame();
+		btn_num9 			= new JButton("9");
+		btn_num8 			= new JButton("8");
+		btn_num7 			= new JButton("7");
+		btn_num6 			= new JButton("6");
+		btn_num5			= new JButton("5");
+		btn_num4 			= new JButton("4");
+		btn_num3 			= new JButton("3");
+		btn_num2 			= new JButton("2");
+		btn_num1 			= new JButton("1");
+		btn_num0 			= new JButton("0");
+		btn_ce 				= new JButton("CE");
+		btn_borrarNumero 	= new JButton("del");
+		btn_coma 			= new JButton(",");
+		comboBox_superior = new JComboBox();
+		comboBox_inferior = new JComboBox();
+		
+		// Se crea una instancia de la clase JFrame y se definen sus atributos.
 		frmConversorDeDivisas.setTitle("Conversor de divisas");
 		frmConversorDeDivisas.getContentPane().setBackground(Color.DARK_GRAY);
 		frmConversorDeDivisas.setBackground(UIManager.getColor("Button.darkShadow"));
@@ -65,7 +103,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().setLayout(null);
 
 		// Se crea componente botón y se asignan atributos.
-		JButton btn_num9 = new JButton("9");
+		
 		btn_num9.setBorder(null);
 		btn_num9.setForeground(Color.BLACK);
 		btn_num9.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -74,7 +112,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(btn_num9);
 
 		// Se crea componente botón y se asignan atributos.
-		JButton btn_num8 = new JButton("8");
+		
 		btn_num8.setBorder(null);
 		btn_num8.setForeground(Color.BLACK);
 		btn_num8.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -83,7 +121,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(btn_num8);
 
 		// Se crea componente botón y se asignan atributos.
-		JButton btn_num7 = new JButton("7");
+		
 		btn_num7.setBorder(null);
 		btn_num7.setForeground(Color.BLACK);
 		btn_num7.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -92,7 +130,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(btn_num7);
 
 		// Se crea componente botón y se asignan atributos.
-		JButton btn_num6 = new JButton("6");
+		
 		btn_num6.setBorder(null);
 		btn_num6.setForeground(Color.BLACK);
 		btn_num6.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -101,7 +139,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(btn_num6);
 
 		// Se crea componente botón y se asignan atributos.
-		JButton btn_num5 = new JButton("5");
+		
 		btn_num5.setBorder(null);
 		btn_num5.setForeground(Color.BLACK);
 		btn_num5.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -110,7 +148,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(btn_num5);
 
 		// Se crea componente botón y se asignan atributos.
-		JButton btn_num4 = new JButton("4");
+		
 		btn_num4.setBorder(null);
 		btn_num4.setForeground(Color.BLACK);
 		btn_num4.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -119,7 +157,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(btn_num4);
 
 		// Se crea componente botón y se asignan atributos.
-		JButton btn_num3 = new JButton("3");
+		
 		btn_num3.setBorder(null);
 		btn_num3.setForeground(Color.BLACK);
 		btn_num3.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -128,7 +166,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(btn_num3);
 
 		// Se crea componente botón y se asignan atributos.
-		JButton btn_num2 = new JButton("2");
+		
 		btn_num2.setBorder(null);
 		btn_num2.setForeground(Color.BLACK);
 		btn_num2.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -137,7 +175,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(btn_num2);
 
 		// Se crea componente botón y se asignan atributos.
-		JButton btn_num1 = new JButton("1");
+		
 		btn_num1.setBorder(null);
 		btn_num1.setForeground(Color.BLACK);
 		btn_num1.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -146,7 +184,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(btn_num1);
 
 		// Se crea componente botón y se asignan atributos.
-		JButton btn_num0 = new JButton("0");
+		
 		btn_num0.setBorder(null);
 		btn_num0.setForeground(Color.BLACK);
 		btn_num0.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -155,7 +193,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(btn_num0);
 
 		// Se crea componente botón y se asignan atributos.
-		JButton btn_ce = new JButton("CE");
+		
 		btn_ce.setBorder(null);
 		btn_ce.setForeground(Color.WHITE);
 		btn_ce.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -164,7 +202,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(btn_ce);
 
 		// Se crea componente botón y se asignan atributos.
-		JButton btn_borrarNumero = new JButton("del");
+		
 		btn_borrarNumero.setBorder(null);
 		btn_borrarNumero.setForeground(Color.WHITE);
 		btn_borrarNumero.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -173,7 +211,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(btn_borrarNumero);
 
 		// Se crea componente botón y se asignan atributos.
-		JButton btn_coma = new JButton(",");
+		
 		btn_coma.setBorder(null);
 		btn_coma.setForeground(Color.BLACK);
 		btn_coma.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -214,7 +252,7 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(txtMoneda);
 
 		// Se crea el comboBox, se definen sus atributos y valores.
-		JComboBox comboBox_superior = new JComboBox();
+		
 		comboBox_superior.setBorder(null);
 		comboBox_superior.setModel(new DefaultComboBoxModel(new String[] { "Dolar", "Euro", "Rubla" }));
 		comboBox_superior.setBackground(Color.DARK_GRAY);
@@ -223,12 +261,87 @@ public class Vista {
 		frmConversorDeDivisas.getContentPane().add(comboBox_superior);
 
 		// Se crea el comboBox, se definen sus atributos y valores.
-		JComboBox comboBox_inferior = new JComboBox();
+		
 		comboBox_inferior.setModel(new DefaultComboBoxModel(new String[] { "Dolar", "Euro", "Rubla" }));
 		comboBox_inferior.setForeground(Color.WHITE);
 		comboBox_inferior.setBorder(null);
 		comboBox_inferior.setBackground(Color.DARK_GRAY);
 		comboBox_inferior.setBounds(20, 430, 226, 22);
 		frmConversorDeDivisas.getContentPane().add(comboBox_inferior);
+		
+//Action Listeners
+		btn_num9.addActionListener(this);
+		btn_num8.addActionListener(this);
+		btn_num7.addActionListener(this);
+		btn_num6.addActionListener(this);
+		btn_num5.addActionListener(this);
+		btn_num4.addActionListener(this);
+		btn_num3.addActionListener(this);
+		btn_num2.addActionListener(this);
+		btn_num1.addActionListener(this);
+		btn_num0.addActionListener(this);
+		//TODO: action listeners
+		/*
+		btn_ce 				= new JButton("CE");
+		btn_borrarNumero 	= new JButton("del");
+		btn_coma 			= new JButton(",");
+		*/
+//Add to frame
+		
+	}
+//Action listeners definidos
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		//Geting info from the event
+				JButton btnPress = (JButton)e.getSource();
+				//Getting the text of the widget
+				String name = btnPress.getText();
+				
+				switch(name) {
+					case "1":
+						valorNumero = valorNumero+"1"; 
+						
+						break;
+					case "2":
+						valorNumero = valorNumero+"2"; 
+						
+						break;
+					case "3":
+						valorNumero = valorNumero+"3"; 
+						
+						break;
+					case "4":
+						valorNumero = valorNumero+"4"; 	
+						
+						break;
+					case "5":
+						
+						break;
+					case "6":
+						
+						break;
+					case "7":
+						
+						break;
+					case "8":
+						
+						break;
+					case "9":
+						
+						break;
+					case "0":
+						
+						break;
+					case "CE":
+						
+						break;
+					case "del":
+						
+						break;
+					case ",":
+						
+						break;
+			}
+		
 	}
 }
