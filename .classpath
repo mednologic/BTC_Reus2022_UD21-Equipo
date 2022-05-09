@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="BTC_Reus2022_UD21-Equipo/src/main/java"/>
+	<classpathentry kind="src" path="BTC_Reus2022_UD21-Equipo/src/test/java"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
