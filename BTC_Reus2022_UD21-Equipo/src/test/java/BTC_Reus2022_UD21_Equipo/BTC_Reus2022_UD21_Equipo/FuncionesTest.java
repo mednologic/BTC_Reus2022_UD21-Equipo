@@ -24,8 +24,16 @@ class FuncionesTest {
 	@Test
 	public void testResetValue() {
 		Funciones FuncionTest1 = new Funciones();
-		double esperado = 0;
-		assertEquals(esperado, FuncionTest1.resetValue());		
+		String esperado = "";
+		assertEquals(esperado, FuncionTest1.resetValue());
+	}
+	
+	@Test
+	public void testVackSpace() {
+		Funciones FuncionTest1 = new Funciones();
+		String esperado = "";
+		assertEquals(esperado, FuncionTest1.backSpace(esperado));
+		
 	}
 
 	@Test
