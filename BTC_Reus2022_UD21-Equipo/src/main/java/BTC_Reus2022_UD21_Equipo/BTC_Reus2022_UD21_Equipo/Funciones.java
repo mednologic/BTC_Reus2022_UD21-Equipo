@@ -19,8 +19,19 @@ public class Funciones {
 		return tipoMoneda;
 	}
 	//Resetea los numeros introducidos "boton borrar"
-	public double resetValue() {
-		return 0;
+	public String resetValue() {
+		String retorno="";
+		return retorno;
+	}
+	//Bontón borrar un caracter
+	public String backSpace(String inputValue) {
+		String retorno="";
+		int len = inputValue.length();
+		retorno=inputValue;
+		//Borramos un caracter
+        if(len>=1)
+        	retorno=retorno.substring(0,len-1);
+		return retorno;
 	}
 	public double euroRubla(double inputValue) {
 		double retorno=0.0;
