@@ -23,16 +23,7 @@ public class Funciones {
 		String retorno="";
 		return retorno;
 	}
-	//Bontón borrar un caracter
-	public String backSpace(String inputValue) {
-		String retorno="";
-		int len = inputValue.length();
-		retorno=inputValue;
-		//Borramos un caracter
-        if(len>=1)
-        	retorno=retorno.substring(0,len-1);
-		return retorno;
-	}
+
 	//Boton borrar un caracter
 		public String backSpace(String inputValue) {
 			String retorno="";
