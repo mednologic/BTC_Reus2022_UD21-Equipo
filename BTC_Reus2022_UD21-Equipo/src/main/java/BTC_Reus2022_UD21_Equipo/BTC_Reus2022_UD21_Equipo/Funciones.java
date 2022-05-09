@@ -22,7 +22,16 @@ public class Funciones {
 	public double resetValue() {
 		return 0;
 	}
-	
+	//Boton borrar un caracter
+		public String backSpace(String inputValue) {
+			String retorno="";
+			int len = inputValue.length();
+			retorno=inputValue;
+			//Borramos un caracter
+	        if(len>=1)
+	        	retorno=retorno.substring(0,len-1);
+			return retorno;
+		}
 	
 	public void getTypeConversion(String valorJComboBox1, String valorJComboBox2, double inputValue) {
 		String sumaStrings=valorJComboBox1+valorJComboBox2;
