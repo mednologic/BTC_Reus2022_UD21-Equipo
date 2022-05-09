@@ -29,11 +29,10 @@ class FuncionesTest {
 	}
 	
 	@Test
-	public void testVackSpace() {
+	public void testBackSpace() {
 		Funciones FuncionTest1 = new Funciones();
 		String esperado = "";
-		assertEquals(esperado, FuncionTest1.backSpace(esperado));
-		
+		assertEquals(esperado, FuncionTest1.backSpace(esperado));		
 	}
 
 	@Test
