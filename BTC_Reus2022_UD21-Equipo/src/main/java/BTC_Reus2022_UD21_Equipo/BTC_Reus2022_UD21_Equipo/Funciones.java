@@ -2,8 +2,6 @@ package BTC_Reus2022_UD21_Equipo.BTC_Reus2022_UD21_Equipo;
 
 public class Funciones {
 	
-	int valorInput;
-	
 	public String tipoMoneda(int opcion) {
 		String tipoMoneda="";
 		switch(opcion) {
@@ -16,16 +14,24 @@ public class Funciones {
 		case 3:
 			tipoMoneda="Dollar";
 			break;
-		case 4:
-			tipoMoneda="Gribna";
-			break;
-		case 5:
-			tipoMoneda="Pounds";
-			break;
 		}
 		
 		return tipoMoneda;
-		
 	}
+	//Resetea los numeros introducidos "boton borrar"
+	public double resetValue() {
+		return 0;
+	}
+	public double euroRubla(double inputValue) {
+		double retorno=0.0;
+		retorno = inputValue*70.95;
+		return retorno;
+	}
+	public double euroDollar(double inputValue) {
+		double retorno=0.0;
+		retorno = inputValue*1.05;
+		return retorno;
+	}
+
 
 }
