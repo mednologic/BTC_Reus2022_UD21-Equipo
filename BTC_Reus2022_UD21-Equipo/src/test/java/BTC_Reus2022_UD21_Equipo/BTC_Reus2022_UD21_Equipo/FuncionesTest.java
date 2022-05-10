@@ -9,9 +9,20 @@ class FuncionesTest {
 	@Test
 	public void testGetTypeConverssion() {
 		Funciones FuncionTest1 = new Funciones();
-		String esperado = "eurodolar";
-		assertEquals(esperado, FuncionTest1.euroDollar(2.1));
+		double esperado = 2.1;
+		assertEquals(esperado, FuncionTest1.euroDollar(2));	
 		
+		Funciones FuncionTest2 = new Funciones();
+		double esperado2 = 141.9;
+		assertEquals(esperado2, FuncionTest2.euroRubla(2));	
+		
+		Funciones FuncionTest3 = new Funciones();
+		double esperado3 = 1.9047619047619047;
+		assertEquals(esperado3, FuncionTest3.dollarEuro(2));
+		
+		Funciones FuncionTest4 = new Funciones();
+		double esperado4 = 1.9047619047619047;
+		assertEquals(esperado3, FuncionTest3.dollarRuble(2));
 	}
 
 	@Test
@@ -32,7 +43,7 @@ class FuncionesTest {
 	@Test
 	public void testResetValue() {
 		Funciones FuncionTest1 = new Funciones();
-		String esperado = "";
+		String esperado = "0";
 		assertEquals(esperado, FuncionTest1.resetValue());
 	}
 
@@ -63,7 +74,7 @@ class FuncionesTest {
 	public void testDollarEuro(){
 		Funciones FuncionTest1 = new Funciones();
 		double resultado = FuncionTest1.dollarEuro(2);
-		double esperado = 1.9;
+		double esperado = 1.9047619047619047;
 		assertEquals(esperado, resultado);
 	}
 	
@@ -79,7 +90,7 @@ class FuncionesTest {
 	public void testRubleEuro() {
 		Funciones FuncionTest1 = new Funciones();
 		double resultado = FuncionTest1.rubleEuro(2);
-		double esperado = 142.85;		
+		double esperado = 142.85714285714286;		
 		assertEquals(esperado, resultado);
 	}
 	
@@ -87,7 +98,7 @@ class FuncionesTest {
 	public void testRubleDollar() {
 		Funciones FuncionTest1 = new Funciones();
 		double resultado = FuncionTest1.rubleDollar(2);
-		double esperado = 153.84;
+		double esperado = 153.84615384615384;
 		assertEquals(esperado, resultado);
 	}
 
