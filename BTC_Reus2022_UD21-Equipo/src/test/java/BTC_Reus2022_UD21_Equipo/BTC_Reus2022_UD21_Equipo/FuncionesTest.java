@@ -5,6 +5,17 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class FuncionesTest {
+	
+	@Test
+	public void testGetTypeConverssion() {
+		Funciones FuncionTest1 = new Funciones();
+		String esperado = "eurodolar";
+		assertEquals(esperado, FuncionTest1.euroDollar(2));
+		
+		Funciones FuncionTest2 = new Funciones();
+		String esperado2 = "eurorubla";
+		assertEquals(esperado2, FuncionTest2.euroDollar(2));
+	}
 
 	@Test
 	public void testTipoMoneda() {
@@ -27,7 +38,7 @@ class FuncionesTest {
 		String esperado = "";
 		assertEquals(esperado, FuncionTest1.resetValue());
 	}
-	
+
 	@Test
 	public void testBackSpace() {
 		Funciones FuncionTest1 = new Funciones();
@@ -36,7 +47,7 @@ class FuncionesTest {
 	}
 
 	@Test
-	public void testeuroRubla(){
+	public void testEuroRubla(){
 		Funciones FuncionTest1 = new Funciones();
 		double resultado = FuncionTest1.euroRubla(2);
 		double esperado = 141.9;
@@ -44,12 +55,45 @@ class FuncionesTest {
 	}
 
 	@Test
-	public void testeuroDollar(){{
+	public void testEuroDollar(){
 		Funciones FuncionTest1 = new Funciones();
 		double resultado = FuncionTest1.euroDollar(2);
 		double esperado = 2.1;
 		assertEquals(esperado, resultado);		
 	}
 
+	@Test
+	public void testDollarEuro(){
+		Funciones FuncionTest1 = new Funciones();
+		double resultado = FuncionTest1.dollarEuro(2);
+		double esperado = 1.90;
+		assertEquals(esperado, resultado);
 	}
+	
+	@Test
+	public void testDollarRuble() {
+		Funciones FuncionTest1 = new Funciones();
+		double resultado = FuncionTest1.dollarRuble(2);
+		double esperado = 138.7;
+		assertEquals(esperado, resultado);
+	}
+	
+	@Test
+	public void testRubleEuro() {
+		Funciones FuncionTest1 = new Funciones();
+		double resultado = FuncionTest1.rubleEuro(2);
+		double esperado = 142.85;
+		
+		assertEquals(esperado, resultado);
+	}
+	
+	@Test
+	public void testRubleDollar() {
+		Funciones FuncionTest1 = new Funciones();
+		double resultado = FuncionTest1.rubleDollar(2);
+		double esperado = 153.84;
+		assertEquals(esperado, resultado);
+	}
+
 }
+
