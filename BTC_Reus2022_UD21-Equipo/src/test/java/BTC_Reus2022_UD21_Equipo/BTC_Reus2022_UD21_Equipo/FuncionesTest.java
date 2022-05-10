@@ -7,40 +7,45 @@ import org.junit.jupiter.api.Test;
 class FuncionesTest {
 	
 	Funciones FuncionTest1 = new Funciones();
+	private static final double DELTA = 0.5d;
 	
 	// Se comprueban las funciones
-	/*@Test
-	public void testGetTypeConverssion() {		
-		Funciones FuncionTest1 = new Funciones();
-		double esperado = 2.1;
-		assertEquals(esperado, FuncionTest1.euroDollar(2));	
-		
-		Funciones FuncionTest2 = new Funciones();
-		double esperado2 = 141.9;
-		assertEquals(esperado2, FuncionTest2.euroRubla(2));	
-		
-		Funciones FuncionTest3 = new Funciones();
-		double esperado3 = 1.9047619047619047;
-		assertEquals(esperado3, FuncionTest3.dollarEuro(2));
-		
-		Funciones FuncionTest4 = new Funciones();
-		double esperado4 = 138.7;
-		assertEquals(esperado4, FuncionTest4.dollarRuble(2));
-		
-		// Uso del delta
-		Funciones FuncionTest5 = new Funciones();
-		double esperado5 = 142.8;
-		double delta = 0.8;
-		assertEquals(esperado5, FuncionTest5.rubleEuro(2), delta);
-		
-		Funciones FuncionTest6 = new Funciones();
-		double esperado6 = 153.84615384615384;
-		assertEquals(esperado6, FuncionTest5.rubleDollar(2));
-	}*/
-	public void testGetTypeConverssion1() {		
-		Vista vista = new Vista();
-		String result = FuncionTest1.getTypeConversion("euro","dolar", "1", vista);
-		assertEquals("1.05",result);
+	
+	@Test
+	public void testGetTypeConverssionEuroToDolar() {		
+		String esperado = "1.05";
+		String resultado =  FuncionTest1.getTypeConversion("euro", "dolar", "1");
+		assertEquals(esperado, resultado);	
+	}
+	@Test
+	public void testGetTypeConverssionEuroToRubla() {		
+		String esperado = "70.95";
+		String resultado =  FuncionTest1.getTypeConversion("euro", "rubla", "1");
+		assertEquals(esperado, resultado);	
+	}
+	@Test
+	public void testGetTypeConverssionDolarToEuro() {		
+		String esperado = "0.9523809523809523";
+		String resultado =  FuncionTest1.getTypeConversion("dolar", "euro", "1");
+		assertEquals(esperado, resultado);	
+	}
+	@Test
+	public void testGetTypeConverssionDolarToRubla() {		
+		String esperado = "69.35";
+		String resultado =  FuncionTest1.getTypeConversion("dolar", "rubla", "1");
+		assertEquals(esperado, resultado);	
+	}
+	@Test
+	public void testGetTypeConverssionRublaToEuro() {		
+		String esperado = "0.014";
+		String resultado =  FuncionTest1.getTypeConversion("rubla", "euro", "1");
+		assertEquals(esperado, resultado);	
+	}
+	@Test
+	public void testGetTypeConverssionRublaToDolar() {		
+		String esperado = "0.014";
+		String resultado =  FuncionTest1.getTypeConversion("rubla", "dolar", "1");
+		assertEquals(esperado, resultado);	
 	}
 	
 	@Test
@@ -48,6 +53,14 @@ class FuncionesTest {
 		
 		String recibido = "2";
 		String esperado = "2.";
+		assertEquals(esperado, FuncionTest1.anyadirComa(recibido));
+	}
+	@Test
+	public void testNoAnyadirSiVariasComa() {
+		
+		String recibido = "2";
+		String esperado = "2.";
+		FuncionTest1.contadorComas("2");
 		assertEquals(esperado, FuncionTest1.anyadirComa(recibido));
 	}
 	
@@ -91,9 +104,15 @@ class FuncionesTest {
 
 	@Test
 	public void testBackSpace() {
-		
+		String input="";
 		String esperado = "";
-		assertEquals(esperado, FuncionTest1.backSpace(esperado));		
+		assertEquals(esperado, FuncionTest1.backSpace(input));		
+	}
+	@Test
+	public void testBackSpaceBig() {
+		String input="xxx";
+		String esperado = "xx";
+		assertEquals(esperado, FuncionTest1.backSpace(input));		
 	}
 
 	@Test
@@ -132,7 +151,7 @@ class FuncionesTest {
 	public void testRubleEuro() {
 		
 		double resultado = FuncionTest1.rubleEuro(2);
-		double esperado = 142.85714285714286;		
+		double esperado = 0.028;		
 		assertEquals(esperado, resultado);
 	}
 	
@@ -140,7 +159,7 @@ class FuncionesTest {
 	public void testRubleDollar() {
 		
 		double resultado = FuncionTest1.rubleDollar(2);
-		double esperado = 153.84615384615384;
+		double esperado = 0.028;
 		assertEquals(esperado, resultado);
 	}
 

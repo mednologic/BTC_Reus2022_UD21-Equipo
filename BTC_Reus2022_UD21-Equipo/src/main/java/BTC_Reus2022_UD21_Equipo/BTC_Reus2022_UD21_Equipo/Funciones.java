@@ -10,7 +10,7 @@ public class Funciones {
 	//public Vista vista= new Vista();
 	//Constructor vacio
 
-	public String getTypeConversion(String valorJComboBox1, String valorJComboBox2, String inputValue, Vista vista) {
+	public String getTypeConversion(String valorJComboBox1, String valorJComboBox2, String inputValue) {
 		String retorno="";
 		//Try to control the empty value
 		try {
@@ -139,12 +139,12 @@ public class Funciones {
 	}
 	public double rubleEuro(double inputValue) {
 		double retorno=0.0;
-		retorno = inputValue/0.014;
+		retorno = inputValue*0.014;
 		return retorno;
 	}
 	public double rubleDollar(double inputValue) {
 		double retorno=0.0;
-		retorno = inputValue/0.013;
+		retorno = inputValue*0.014;
 		return retorno;
 	}
 

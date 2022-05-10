@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -314,43 +315,43 @@ public class Vista implements ActionListener{
 				switch(name) {
 					case "1":
 						valorNumero = valorNumero+"1";
-						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
+						resultado = func.getTypeConversion(combo1,combo2, valorNumero);
 						break;
 					case "2":
 						valorNumero = valorNumero+"2"; 
-						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
+						resultado = func.getTypeConversion(combo1,combo2, valorNumero);
 						break;
 					case "3":
 						valorNumero = valorNumero+"3";
-						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
+						resultado = func.getTypeConversion(combo1,combo2, valorNumero);
 						break;
 					case "4":
 						valorNumero = valorNumero+"4";
-						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
+						resultado = func.getTypeConversion(combo1,combo2, valorNumero);
 						break;
 					case "5":
 						valorNumero = valorNumero+"5";
-						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
+						resultado = func.getTypeConversion(combo1,combo2, valorNumero);
 						break;
 					case "6":
 						valorNumero = valorNumero+"6";
-						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
+						resultado = func.getTypeConversion(combo1,combo2, valorNumero);
 						break;
 					case "7":
 						valorNumero = valorNumero+"7";
-						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
+						resultado = func.getTypeConversion(combo1,combo2, valorNumero);
 						break;
 					case "8":
 						valorNumero = valorNumero+"8";
-						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
+						resultado = func.getTypeConversion(combo1,combo2, valorNumero);
 						break;
 					case "9":
 						valorNumero = valorNumero+"9";
-						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
+						resultado = func.getTypeConversion(combo1,combo2, valorNumero);
 						break;
 					case "0":
 						valorNumero = valorNumero+"0";
-						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
+						resultado = func.getTypeConversion(combo1,combo2, valorNumero);
 						break;
 					case "CE":
 						valorNumero = func.resetValue();
@@ -358,14 +359,15 @@ public class Vista implements ActionListener{
 						break;
 					case "del":
 						valorNumero = func.backSpace(valorNumero);
-						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
+						resultado = func.getTypeConversion(combo1,combo2, valorNumero);
 						break;
 					case ",":
 						valorNumero = func.anyadirComa(valorNumero);
-						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
+						resultado = func.getTypeConversion(combo1,combo2, valorNumero);
 						break;
 			}
-		moneda_arriba.setText(combo1+": "+valorNumero);	
+		moneda_arriba.setText(combo1+": "+valorNumero);
+		
 		moneda_abajo.setText(combo2+": "+resultado);
 	}
 	public String valorStringEmpty() {
