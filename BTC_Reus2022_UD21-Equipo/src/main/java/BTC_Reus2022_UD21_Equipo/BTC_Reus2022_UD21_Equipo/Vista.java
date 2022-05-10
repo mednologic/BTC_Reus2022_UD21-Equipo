@@ -81,7 +81,7 @@ public class Vista implements ActionListener{
 	 */
 	private void initialize() {
 		//Creacion de objetos
-		//func = new Funciones();
+		func = new Funciones();
 		frmConversorDeDivisas = new JFrame();
 		btn_num9 			= new JButton("9");
 		btn_num8 			= new JButton("8");
@@ -281,7 +281,7 @@ public class Vista implements ActionListener{
 		
 		
 		lblResult.setForeground(Color.WHITE);
-		lblResult.setBounds(38, 108, 61, 16);
+		lblResult.setBounds(38, 108, 251, 16);
 		frmConversorDeDivisas.getContentPane().add(lblResult);
 		
 //Action Listeners
@@ -316,7 +316,8 @@ public class Vista implements ActionListener{
 				
 				switch(name) {
 					case "1":
-						valorNumero = valorNumero+"1"; 
+						valorNumero = valorNumero+"1";
+						//func.getTypeConversion(combo1,combo2, valorNumero, this);
 						break;
 					case "2":
 						valorNumero = valorNumero+"2"; 
@@ -357,7 +358,7 @@ public class Vista implements ActionListener{
 			}
 			
 			if(!valorNumero.equals("")) {
-				//func.getTypeConversion(combo1,combo2, valorNumero);
+				func.getTypeConversion(combo1,combo2, valorNumero, this);
 			}
 		
 	}

@@ -1,16 +1,17 @@
 package BTC_Reus2022_UD21_Equipo.BTC_Reus2022_UD21_Equipo;
 
+import javax.swing.JLabel;
+
 public class Funciones {
 	
-	public Vista vista;
+	//public Vista vista= new Vista();
 	//Constructor vacio
 
-	public void getTypeConversion(String valorJComboBox1, String valorJComboBox2, String inputValue) {
+	public void getTypeConversion(String valorJComboBox1, String valorJComboBox2, String inputValue, Vista vista) {
 		
 		String sumaStrings=valorJComboBox1+valorJComboBox2;
 		Double valorOperar = Double.parseDouble(inputValue);
 		String retorno="";
-		
 		//Sumamos los strings recibidos para que el sitch los reciva
 		sumaStrings = sumaStrings.toLowerCase();
 		
@@ -18,25 +19,26 @@ public class Funciones {
 		
 			case "eurodolar":
 				retorno =Double.toString(euroDollar(valorOperar));
+				
 				break;
 			case "eurorubla":
 				retorno =Double.toString(euroRubla(valorOperar));
 				break;
 			case "dolareuro":
-				dollarEuro(valorOperar);
+				retorno =Double.toString(dollarEuro(valorOperar));
 				break;
 			case "dolarrubla":
-				dollarRuble(valorOperar);
+				retorno =Double.toString(dollarRuble(valorOperar));
 				break;
 			case "rublaeuro":
-				rubleEuro(valorOperar);
+				retorno =Double.toString(rubleEuro(valorOperar));
 				break;
 			case "rubladolar":
-				rubleDollar(valorOperar);
+				retorno =Double.toString(rubleDollar(valorOperar));
 				break;	
 		}
 		//Seteamos en vista el resultado
-		vista.lblResult.setText(retorno);
+		vista.lblResult.setText("resultado: "+retorno);
 	}
 	
 	public String tipoMoneda(int opcion) {
