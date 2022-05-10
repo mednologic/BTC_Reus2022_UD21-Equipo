@@ -10,11 +10,8 @@ class FuncionesTest {
 	public void testGetTypeConverssion() {
 		Funciones FuncionTest1 = new Funciones();
 		String esperado = "eurodolar";
-		assertEquals(esperado, FuncionTest1.euroDollar(2));
+		assertEquals(esperado, FuncionTest1.euroDollar(2.1));
 		
-		Funciones FuncionTest2 = new Funciones();
-		String esperado2 = "eurorubla";
-		assertEquals(esperado2, FuncionTest2.euroDollar(2));
 	}
 
 	@Test
@@ -66,7 +63,7 @@ class FuncionesTest {
 	public void testDollarEuro(){
 		Funciones FuncionTest1 = new Funciones();
 		double resultado = FuncionTest1.dollarEuro(2);
-		double esperado = 1.90;
+		double esperado = 1.9;
 		assertEquals(esperado, resultado);
 	}
 	
@@ -82,8 +79,7 @@ class FuncionesTest {
 	public void testRubleEuro() {
 		Funciones FuncionTest1 = new Funciones();
 		double resultado = FuncionTest1.rubleEuro(2);
-		double esperado = 142.85;
-		
+		double esperado = 142.85;		
 		assertEquals(esperado, resultado);
 	}
 	
