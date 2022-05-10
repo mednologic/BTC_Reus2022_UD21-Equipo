@@ -6,8 +6,9 @@ import org.junit.jupiter.api.Test;
 
 class FuncionesTest {
 	
+	// Se comprueban las funciones
 	@Test
-	public void testGetTypeConverssion() {
+	public void testGetTypeConverssion() {		
 		Funciones FuncionTest1 = new Funciones();
 		double esperado = 2.1;
 		assertEquals(esperado, FuncionTest1.euroDollar(2));	
@@ -24,9 +25,11 @@ class FuncionesTest {
 		double esperado4 = 138.7;
 		assertEquals(esperado4, FuncionTest4.dollarRuble(2));
 		
+		// Uso del delta
 		Funciones FuncionTest5 = new Funciones();
-		double esperado5 = 142.85714285714286;
-		assertEquals(esperado5, FuncionTest5.rubleEuro(2));
+		double esperado5 = 142.8;
+		double delta = 0.8;
+		assertEquals(esperado5, FuncionTest5.rubleEuro(2), delta);
 		
 		Funciones FuncionTest6 = new Funciones();
 		double esperado6 = 153.84615384615384;
