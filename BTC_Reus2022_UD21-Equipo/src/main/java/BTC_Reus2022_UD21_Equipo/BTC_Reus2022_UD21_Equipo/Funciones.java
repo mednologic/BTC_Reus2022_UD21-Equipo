@@ -1,11 +1,14 @@
 package BTC_Reus2022_UD21_Equipo.BTC_Reus2022_UD21_Equipo;
 
+import java.text.DecimalFormat;
+
 import javax.swing.JLabel;
 
 public class Funciones {
 	
 	//public Vista vista= new Vista();
 	//Constructor vacio
+	DecimalFormat df = new DecimalFormat("####,##");
 
 	public void getTypeConversion(String valorJComboBox1, String valorJComboBox2, String inputValue, Vista vista) {
 		
@@ -15,11 +18,10 @@ public class Funciones {
 		//Sumamos los strings recibidos para que el sitch los reciva
 		sumaStrings = sumaStrings.toLowerCase();
 		
-		switch(sumaStrings) {
 		
+		switch(sumaStrings) {
 			case "eurodolar":
 				retorno =Double.toString(euroDollar(valorOperar));
-				
 				break;
 			case "eurorubla":
 				retorno =Double.toString(euroRubla(valorOperar));
@@ -37,6 +39,8 @@ public class Funciones {
 				retorno =Double.toString(rubleDollar(valorOperar));
 				break;	
 		}
+		//Limitamos el número de decimales
+		
 		//Seteamos en vista el resultado
 		vista.lblResult.setText("resultado: "+retorno);
 	}
@@ -79,31 +83,43 @@ public class Funciones {
 	public double euroDollar(double inputValue) {
 		double retorno=0.0;
 		retorno = inputValue*1.05;
+		//Limitamos el número de decimales
+		retorno = Double.parseDouble(df.format(retorno));
 		return retorno;
 	}
 	public double euroRubla(double inputValue) {
 		double retorno=0.0;
 		retorno = inputValue*70.95;
+		//Limitamos el número de decimales
+		retorno = Double.parseDouble(df.format(retorno));
 		return retorno;
 	}
 	public double dollarEuro(double inputValue) {
 		double retorno=0.0;
 		retorno = inputValue/1.05;
+		//Limitamos el número de decimales
+		retorno = Double.parseDouble(df.format(retorno));
 		return retorno;
 	}
 	public double dollarRuble(double inputValue) {
 		double retorno=0.0;
 		retorno = inputValue*69.35;
+		//Limitamos el número de decimales
+		retorno = Double.parseDouble(df.format(retorno));
 		return retorno;
 	}
 	public double rubleEuro(double inputValue) {
 		double retorno=0.0;
 		retorno = inputValue/0.014;
+		//Limitamos el número de decimales
+		retorno = Double.parseDouble(df.format(retorno));
 		return retorno;
 	}
 	public double rubleDollar(double inputValue) {
 		double retorno=0.0;
 		retorno = inputValue/0.013;
+		//Limitamos el número de decimales
+		retorno = Double.parseDouble(df.format(retorno));
 		return retorno;
 	}
 

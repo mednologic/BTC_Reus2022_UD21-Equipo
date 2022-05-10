@@ -295,6 +295,9 @@ public class Vista implements ActionListener{
 		btn_num2.addActionListener(this);
 		btn_num1.addActionListener(this);
 		btn_num0.addActionListener(this);
+		btn_ce.addActionListener(this);
+		btn_borrarNumero.addActionListener(this);
+		btn_coma.addActionListener(this);
 		//TODO: action listeners
 		/*
 		btn_ce 				= new JButton("CE");
@@ -317,34 +320,43 @@ public class Vista implements ActionListener{
 				switch(name) {
 					case "1":
 						valorNumero = valorNumero+"1";
-						//func.getTypeConversion(combo1,combo2, valorNumero, this);
+						func.getTypeConversion(combo1,combo2, valorNumero, this);
 						break;
 					case "2":
 						valorNumero = valorNumero+"2"; 
+						func.getTypeConversion(combo1,combo2, valorNumero, this);
 						break;
 					case "3":
-						valorNumero = valorNumero+"3"; 
+						valorNumero = valorNumero+"3";
+						func.getTypeConversion(combo1,combo2, valorNumero, this);
 						break;
 					case "4":
-						valorNumero = valorNumero+"4"; 	
+						valorNumero = valorNumero+"4";
+						func.getTypeConversion(combo1,combo2, valorNumero, this);
 						break;
 					case "5":
 						valorNumero = valorNumero+"5";
+						func.getTypeConversion(combo1,combo2, valorNumero, this);
 						break;
 					case "6":
 						valorNumero = valorNumero+"6";
+						func.getTypeConversion(combo1,combo2, valorNumero, this);
 						break;
 					case "7":
 						valorNumero = valorNumero+"7";
+						func.getTypeConversion(combo1,combo2, valorNumero, this);
 						break;
 					case "8":
 						valorNumero = valorNumero+"8";
+						func.getTypeConversion(combo1,combo2, valorNumero, this);
 						break;
 					case "9":
 						valorNumero = valorNumero+"9";
+						func.getTypeConversion(combo1,combo2, valorNumero, this);
 						break;
 					case "0":
 						valorNumero = valorNumero+"0";
+						func.getTypeConversion(combo1,combo2, valorNumero, this);
 						break;
 					case "CE":
 						
@@ -355,11 +367,6 @@ public class Vista implements ActionListener{
 					case ",":
 						
 						break;
-			}
-			
-			if(!valorNumero.equals("")) {
-				func.getTypeConversion(combo1,combo2, valorNumero, this);
-			}
-		
+			}		
 	}
 }
