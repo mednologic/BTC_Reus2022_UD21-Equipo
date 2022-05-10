@@ -73,22 +73,34 @@ public class Funciones {
 	//Añadir coma
 	public String anyadirComa(String inputValue) {
 		String retorno = "";
-		System.out.println("Input "+ inputValue);
+
 		//Getting the lenght of the string
 		int len = inputValue.length();
-		System.out.println("longitug "+ len);
+		//No return value
 		if(len==0) {
-        	//No return value
-        	System.out.println("Retorno no longitud"+retorno);
-        }else if(!inputValue.contains(".")){
-        	System.out.println("Retorna coma"+retorno);
+        //valor contiene .
+        }else if(inputValue.contains(".")){
+        	if(contadorComas(inputValue)<1) {
+        		retorno = inputValue+".";
+        	}else {
+        		retorno = inputValue;
+        	}
+        //valor no contiene .
+		}else if(!inputValue.contains(".")){
         		retorno=inputValue+".";	
         }
-		if(len!=0){
-        	retorno = inputValue+".";
-        	System.out.println("Retorno con valor: "+retorno);
-        }
 		return retorno;
+	}
+	
+	//Contar comas
+	public int contadorComas(String input) {
+		int contador=0;
+		for(int i=0; i<input.length(); i++) {
+			if(input.charAt(i)=='.') {
+				contador++;
+			}
+		}
+		return contador;
 	}
 
 	//Boton borrar un caracter

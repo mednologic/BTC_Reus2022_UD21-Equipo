@@ -357,12 +357,11 @@ public class Vista implements ActionListener{
 						resultado = func.resetValue();
 						break;
 					case "del":
-							valorNumero = func.backSpace(valorNumero);
-							resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
+						valorNumero = func.backSpace(valorNumero);
+						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
 						break;
 					case ",":
-						//TODO: Controlar error de no añadir , al principio ni dos comas
-						resultado = func.anyadirComa(valorNumero);
+						valorNumero = func.anyadirComa(valorNumero);
 						resultado = func.getTypeConversion(combo1,combo2, valorNumero, this);
 						break;
 			}
