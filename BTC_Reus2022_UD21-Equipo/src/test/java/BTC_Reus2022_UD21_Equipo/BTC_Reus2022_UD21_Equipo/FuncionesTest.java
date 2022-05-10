@@ -21,8 +21,16 @@ class FuncionesTest {
 		assertEquals(esperado3, FuncionTest3.dollarEuro(2));
 		
 		Funciones FuncionTest4 = new Funciones();
-		double esperado4 = 1.9047619047619047;
-		assertEquals(esperado3, FuncionTest3.dollarRuble(2));
+		double esperado4 = 138.7;
+		assertEquals(esperado4, FuncionTest4.dollarRuble(2));
+		
+		Funciones FuncionTest5 = new Funciones();
+		double esperado5 = 142.85714285714286;
+		assertEquals(esperado5, FuncionTest5.rubleEuro(2));
+		
+		Funciones FuncionTest6 = new Funciones();
+		double esperado6 = 153.84615384615384;
+		assertEquals(esperado6, FuncionTest5.rubleDollar(2));
 	}
 
 	@Test
