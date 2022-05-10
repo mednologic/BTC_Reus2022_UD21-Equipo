@@ -35,6 +35,30 @@ class FuncionesTest {
 		double esperado6 = 153.84615384615384;
 		assertEquals(esperado6, FuncionTest5.rubleDollar(2));
 	}
+	
+	@Test
+	public void testAnyadirComa() {
+		Funciones FuncionTest1 = new Funciones();
+		String recibido = "2";
+		String esperado = "2.";
+		assertEquals(esperado, FuncionTest1.anyadirComa(recibido));
+	}
+	
+	@Test
+	public void testNoAnyadirComa() {
+		Funciones FuncionTest1 = new Funciones();
+		String recibido = "2.";
+		String esperado = "2";
+		assertEquals(esperado, FuncionTest1.anyadirComa(recibido));
+	} 
+	
+	@Test
+	public void testContadorComas() {
+		Funciones FuncionTest1 = new Funciones();
+		String recibido = "2.2";
+		int esperado = 1;
+		assertEquals(esperado, FuncionTest1.contadorComas(recibido));
+	}
 
 	@Test
 	public void testTipoMoneda() {
