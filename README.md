@@ -19,14 +19,14 @@ Este ejercicio ha sido realizado por los miembros del equipo 1. Dicho equipo est
   [- Octavio Bernal](https://github.com/OctavioBernalGH)<br>
   [- David Dalmau](https://github.com/DavidDalmauDieguez)
   
-Se crea un programa que convierte las divisas a elegir en una lista. El usuario deberá seleccionar la moneda que quiere convertir y la moneda de conversión y el programa mostrará por pantalla el valor. Para realizar este programa se ha dividido el código en tres clases principales y una clase de testing donde se realizarán las pruebas unitarias con JUnit 5.
+<p align="justify">Se crea un programa que convierte las divisas a elegir en una lista. El usuario deberá seleccionar la moneda que quiere convertir y la moneda de conversión y el programa mostrará por pantalla el valor. Para realizar este programa se ha dividido el código en tres clases principales y una clase de testing donde se realizarán las pruebas unitarias con JUnit 5.</p>
 
-En la siguiente imagen se muestra el programa junto con una breve explicación funcional.
+<p align="justify">En la siguiente imagen se muestra el programa junto con una breve explicación funcional. **Si no visualiza bien la imagen pruebe hacer un click en ella, se abrirá en pantalla completa.</p>
 
 ![image](https://user-images.githubusercontent.com/103035621/167864543-3c5413e2-84a6-47db-985e-d4a39915c878.png)
 
 
-Para comenzar el ejercicio primero se crea la vista, en la cuál se crearán los compontentes utilizando la tecnología JBuilder. Para ello se crea primero una Aplication Frame, se crean los diferentes componentes que formarán la vista, como en este caso son los JButtons de los numeros, las JLabels de los textos y los TextFields no editables del visor de conversión.
+<p align="justify">Para comenzar el ejercicio primero se crea la vista, en la cuál se crearán los compontentes utilizando la tecnología JBuilder. Para ello se crea primero una Aplication Frame, se crean los diferentes componentes que formarán la vista, como en este caso son los JButtons de los numeros, las JLabels de los textos y los TextFields no editables del visor de conversión.</p>
 
 El resultado será el siguiente:
 
@@ -423,7 +423,7 @@ public class Vista implements ActionListener{
   
 </details>
 
-Una vez creada la vista, se ha procedido a crear una clase llamada Funciones.Java. Esta clase contendrá los diferentes métodos de conversión, recibirá la entrada de numeros como dato, creará una cadena con estos carácteres, la convertirá a formato numérico hará los cálculos precisos según el tipo de moneda y devolverá el resultado en los textField ocultos en el conversor de divisas.
+<p align="justify">Una vez creada la vista, se ha procedido a crear una clase llamada Funciones.Java. Esta clase contendrá los diferentes métodos de conversión, recibirá la entrada de numeros como dato, creará una cadena con estos carácteres, la convertirá a formato numérico hará los cálculos precisos según el tipo de moneda y devolverá el resultado en los textField ocultos en el conversor de divisas.</p>
 
 A continuación de esta breve explicación habrá un desplegable con el código generado para la clase Funciones.Java.
 
@@ -592,4 +592,191 @@ public class Funciones {
 ```
   
   
+</details>
+
+<p align="justify">Por último pero no menos importante, se crea una clase llamada FuncionesTest.Java, en esta clase se realizarán las pruebas unitarias mediante JUnit 5. La principal tarea será comprobar el control de errores de las funciones utilizadas en la conversión de divisas para verificar su correcto funcionamiento.</p>
+
+![image](https://user-images.githubusercontent.com/103035621/167866189-549e8043-9d94-4af1-9100-356a1f69da0f.png)
+
+<p align="justify">Como se muestra en la anterior imagen, se comprueba el 94% de las funciones utilizadas para la conversión de divisas y todas ellas correctamente, para realizar las pruebas se crean funciones de tipo test (con el @test), se ejecutan las funciones de la clase a comprobar y se compara el resultado del programa con el resultado esperado.</p> 
+
+En el siguiente desplegable se añade el código generado durante las pruebas unitarias mediante JUnit 5.
+
+<details>
+
+<summary>Código generado en pruebas unitarias</summary>	
+
+<br>
+	
+```java
+package BTC_Reus2022_UD21_Equipo.BTC_Reus2022_UD21_Equipo;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class FuncionesTest {
+	
+	Funciones FuncionTest1 = new Funciones();
+	private static final double DELTA = 0.5d;
+	
+	// Se comprueban las funciones
+	
+	@Test
+	public void testGetTypeConverssionEuroToDolar() {		
+		String esperado = "1.05";
+		String resultado =  FuncionTest1.getTypeConversion("euro", "dolar", "1");
+		assertEquals(esperado, resultado);	
+	}
+	@Test
+	public void testGetTypeConverssionEuroToRubla() {		
+		String esperado = "70.95";
+		String resultado =  FuncionTest1.getTypeConversion("euro", "rubla", "1");
+		assertEquals(esperado, resultado);	
+	}
+	@Test
+	public void testGetTypeConverssionDolarToEuro() {		
+		String esperado = "0.9523809523809523";
+		String resultado =  FuncionTest1.getTypeConversion("dolar", "euro", "1");
+		assertEquals(esperado, resultado);	
+	}
+	@Test
+	public void testGetTypeConverssionDolarToRubla() {		
+		String esperado = "69.35";
+		String resultado =  FuncionTest1.getTypeConversion("dolar", "rubla", "1");
+		assertEquals(esperado, resultado);	
+	}
+	@Test
+	public void testGetTypeConverssionRublaToEuro() {		
+		String esperado = "0.014";
+		String resultado =  FuncionTest1.getTypeConversion("rubla", "euro", "1");
+		assertEquals(esperado, resultado);	
+	}
+	@Test
+	public void testGetTypeConverssionRublaToDolar() {		
+		String esperado = "0.014";
+		String resultado =  FuncionTest1.getTypeConversion("rubla", "dolar", "1");
+		assertEquals(esperado, resultado);	
+	}
+	
+	@Test
+	public void testAnyadirComa() {
+		
+		String recibido = "2";
+		String esperado = "2.";
+		assertEquals(esperado, FuncionTest1.anyadirComa(recibido));
+	}
+	@Test
+	public void testNoAnyadirSiVariasComa() {
+		
+		String recibido = "2";
+		String esperado = "2.";
+		FuncionTest1.contadorComas("2");
+		assertEquals(esperado, FuncionTest1.anyadirComa(recibido));
+	}
+	
+	@Test
+	public void testNoAnyadirComa() {
+		
+		String recibido = "2.";
+		String esperado = "2.";
+		assertEquals(esperado, FuncionTest1.anyadirComa(recibido));
+	} 
+	
+	@Test
+	public void testContadorComas() {
+	
+		String recibido = "2.2";
+		int esperado = 1;
+		assertEquals(esperado, FuncionTest1.contadorComas(recibido));
+	}
+
+	@Test
+	public void testTipoMoneda() {
+		
+		String esperado = "Euro";
+		assertEquals(esperado, FuncionTest1.tipoMoneda(1));
+
+	
+		String esperado2 = "Rubla";
+		assertEquals(esperado2, FuncionTest1.tipoMoneda(2));
+
+	
+		String esperado3 = "Dollar";
+		assertEquals(esperado3, FuncionTest1.tipoMoneda(3));
+	}
+
+	@Test
+	public void testResetValue() {
+		
+		String esperado = "";
+		assertEquals(esperado, FuncionTest1.resetValue());
+	}
+
+	@Test
+	public void testBackSpace() {
+		String input="";
+		String esperado = "";
+		assertEquals(esperado, FuncionTest1.backSpace(input));		
+	}
+	@Test
+	public void testBackSpaceBig() {
+		String input="xxx";
+		String esperado = "xx";
+		assertEquals(esperado, FuncionTest1.backSpace(input));		
+	}
+
+	@Test
+	public void testEuroRubla(){
+		
+		double resultado = FuncionTest1.euroRubla(2);
+		double esperado = 141.9;
+		assertEquals(esperado, resultado);	
+	}
+
+	@Test
+	public void testEuroDollar(){
+		
+		double resultado = FuncionTest1.euroDollar(2);
+		double esperado = 2.1;
+		assertEquals(esperado, resultado);		
+	}
+
+	@Test
+	public void testDollarEuro(){
+		
+		double resultado = FuncionTest1.dollarEuro(2);
+		double esperado = 1.9047619047619047;
+		assertEquals(esperado, resultado);
+	}
+	
+	@Test
+	public void testDollarRuble() {
+		
+		double resultado = FuncionTest1.dollarRuble(2);
+		double esperado = 138.7;
+		assertEquals(esperado, resultado);
+	}
+	
+	@Test
+	public void testRubleEuro() {
+		
+		double resultado = FuncionTest1.rubleEuro(2);
+		double esperado = 0.028;		
+		assertEquals(esperado, resultado);
+	}
+	
+	@Test
+	public void testRubleDollar() {
+		
+		double resultado = FuncionTest1.rubleDollar(2);
+		double esperado = 0.028;
+		assertEquals(esperado, resultado);
+	}
+
+}
+
+	
+```
+	
 </details>
